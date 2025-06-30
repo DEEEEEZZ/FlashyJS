@@ -1,154 +1,160 @@
-# Flashy.js 🔥💥
+# FlashyJS 🌟
 
-¿Cansado de notificaciones aburridas que parecen de los 90s? ¡Flashy.js llegó para revolucionar tu vida! 😎
+![FlashyJS](https://img.shields.io/badge/FlashyJS-v1.0.0-brightgreen)
 
-Una librería de notificaciones tan elegante que hasta tu ex se va a poner celosa. 💅✨
+Welcome to **FlashyJS**, a lightweight and modern library for displaying notifications on the web. This repository provides an easy-to-use solution that is highly customizable and compatible with various environments, including global, ES Module, and CommonJS. With FlashyJS, you can create stylish notifications featuring smooth animations, themes, icons, and flexible configuration options.
 
-## ¿Por qué Flashy.js es tan genial? 🤩
+## Table of Contents
 
-- 🎨 Múltiples tipos de notificaciones (porque la vida no es solo success o error, ¿verdad?)
-- 🎯 6 posiciones diferentes (como un sniper de notificaciones)
-- 🎭 4 animaciones que harán que tus usuarios se enamoren
-- 🌓 Temas claro y oscuro (para todos los vampiros programadores)
-- 📱 Responsive como tú después del café
-- ⏱️ Barra de progreso que es más puntual que tu jefe
-- 🔄 Más personalizable que tu perfil de dating
-- 🎯 Callbacks para cuando quieras ser stalker de tus notificaciones
-- 🚀 Sin dependencias (independiente como deberías ser tú)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Customization](#customization)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-## Instalación 📦 (Más fácil que ligarse a alguien en una app)
+## Features
 
-### NPM (Para los pros)
+- **Lightweight**: Minimal footprint for fast loading.
+- **Modern Design**: Clean and stylish notifications.
+- **Easy to Use**: Simple API for quick integration.
+- **Highly Customizable**: Adjust styles, animations, and settings.
+- **Multiple Environments**: Works with global, ES Module, and CommonJS setups.
+- **Smooth Animations**: Enhance user experience with fluid transitions.
+
+## Installation
+
+To install FlashyJS, you can use npm or include it directly in your HTML file.
+
+### Using npm
+
+Run the following command in your terminal:
 
 ```bash
-npm install @pablotheblink/flashyjs
+npm install flashyjs
 ```
 
-### Yarn (Para los hipsters)
+### Directly in HTML
 
-```bash
-yarn add @pablotheblink/flashyjs
-```
-
-### CDN (Para los que viven al límite)
+You can also include FlashyJS directly in your HTML file:
 
 ```html
-<script src="https://unpkg.com/@pablotheblink/flashyjs@1.0.4/flashy.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flashyjs/dist/flashy.min.js"></script>
 ```
 
-## Uso Básico 🚀 (Tan simple que tu mascota podría hacerlo)
+## Usage
 
-### ES Modules (Moderno y sexy)
+Using FlashyJS is straightforward. Here’s a basic example of how to create a notification.
+
+### Basic Notification
 
 ```javascript
-import flashy from "@pablotheblink/flashyjs";
-
-flashy("¡Hola Mundo Cruel!"); // Con actitud 😈
+Flashy.notify('This is a notification message!');
 ```
 
-### CommonJS (Clásico pero efectivo)
+### Notification with Options
+
+You can customize your notifications by passing an options object:
 
 ```javascript
-const flashy = require("@pablotheblink/flashyjs");
-
-flashy("¡Saludos terrícolas!"); // Feeling alien 👽
-```
-
-### Script Global (Old school pero con estilo)
-
-```html
-<script src="https://unpkg.com/@pablotheblink/flashyjs@1.0.4/flashy.js"></script>
-<script>
-  window.flashy("¡El show debe continuar!"); // Drama queen mode 🎭
-</script>
-```
-
-## Tipos de Notificaciones 🎨 (Para todas las personalidades)
-
-```javascript
-// Notificación básica (para los tímidos)
-flashy("Mensaje básico... o no tan básico 🤫");
-
-// Notificación de éxito (celebra como si fuera viernes)
-flashy.success("¡Lo lograste, crack! 🎉");
-
-// Notificación de error (la vida no siempre es color de rosa)
-flashy.error("¡Ups! Alguien la regó 💩");
-
-// Notificación de advertencia (tu conciencia hablando)
-flashy.warning("¡Ojo al piojo! 👁️");
-
-// Notificación informativa (el sabelotodo del grupo)
-flashy.info("Dato curioso que nadie pidió 🤓");
-```
-
-## Configuración Avanzada ⚙️ (Para los perfeccionistas obsesivos)
-
-```javascript
-flashy("Soy una notificación con actitud", {
-  type: "success", // Porque merezco celebrar
-  position: "top-right", // La esquina VIP
-  duration: 4000, // 4 segundos de gloria
-  closable: true, // Por si te aburres de mí
-  animation: "slide", // Entrada triunfal
-  theme: "dark", // Porque soy misterioso
-  icon: "🔥", // Calentito como mi personalidad
-  onClick: () => console.log("¡Me tocaste! 😏"), // Interacción picante
-  onClose: () => console.log("Adiós cruel mundo 😢"), // Drama hasta el final
+Flashy.notify({
+    message: 'This is a customizable notification!',
+    duration: 3000, // duration in milliseconds
+    type: 'success', // 'info', 'success', 'warning', 'error'
 });
 ```
 
-## Configuración Global 🌍 (Porque eres el jefe de tu código)
+## Customization
+
+FlashyJS allows you to tailor notifications to fit your design needs. Here are some of the options you can customize:
+
+### Themes
+
+You can set different themes for your notifications. Here’s how to apply a theme:
 
 ```javascript
-// Establece las reglas del juego
-flashy.setDefaults({
-  duration: 5000, // 5 segundos de fama
-  position: "bottom-right", // Mi lugar favorito
-  theme: "dark", // Lado oscuro activado
+Flashy.setTheme('dark'); // Available themes: 'light', 'dark', 'colorful'
+```
+
+### Icons
+
+You can add icons to your notifications. Here’s an example:
+
+```javascript
+Flashy.notify({
+    message: 'This is a notification with an icon!',
+    icon: 'path/to/icon.png',
 });
-
-// Espía las opciones actuales (stalker mode)
-const options = flashy.getOptions();
 ```
 
-## Métodos de Control 🛠️ (El poder en tus manos)
+### Custom Styles
 
-```javascript
-// Silencia a todas las notificaciones (dictador mode)
-flashy.closeAll();
-
-// Destruye todo y desaparece sin dejar rastro (ninja mode)
-flashy.destroy();
-```
-
-## Personalización de Estilos 🎨 (Hazlo tuyo, tigre)
+For advanced users, you can define custom styles:
 
 ```css
 .flashy-notification {
-  /* Aquí va tu creatividad desbordante */
-  /* Haz que brillen más que tu futuro */
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
 }
 ```
 
-## Soporte Móvil 📱 (Porque también los smartphones merecen amor)
+## Examples
 
-Nuestras notificaciones son tan responsivas que se adaptan mejor que tú a los cambios de la vida. 💪
+### Example 1: Success Notification
 
-## Enlaces Útiles 🔗 (Para los curiosos)
+```javascript
+Flashy.notify({
+    message: 'Operation completed successfully!',
+    type: 'success',
+});
+```
 
-- **NPM**: https://www.npmjs.com/package/@pablotheblink/flashyjs (Donde vive la magia)
-- **CDN**: https://unpkg.com/@pablotheblink/flashyjs@1.0.4/flashy.js (Acceso directo al paraíso)
-- **GitHub**: https://github.com/pablotheblink/FlashyJS (El laboratorio secreto)
+### Example 2: Error Notification
 
-## Licencia 📄 (Lo legal y aburrido)
+```javascript
+Flashy.notify({
+    message: 'An error occurred. Please try again.',
+    type: 'error',
+});
+```
 
-MIT License - Básicamente puedes hacer lo que quieras, pero no nos culpes si te vuelves adicto.
+### Example 3: Info Notification
 
-## El Genio Detrás de la Locura 👨‍💻
+```javascript
+Flashy.notify({
+    message: 'This is an informational message.',
+    type: 'info',
+});
+```
 
-Pablo Martínez - El tipo que pensó que el mundo necesitaba notificaciones más sexys.
+### Example 4: Warning Notification
 
-## Versión Actual 📌
+```javascript
+Flashy.notify({
+    message: 'Warning! Check your input.',
+    type: 'warning',
+});
+```
 
-1.0.4 - "La que te va a enamorar" 💕
+## Contributing
+
+We welcome contributions to FlashyJS! If you have ideas for new features, improvements, or bug fixes, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes.
+4. Submit a pull request with a clear description of your changes.
+
+## License
+
+FlashyJS is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+For the latest updates and releases, visit our [Releases](https://github.com/DEEEEEZZ/FlashyJS/releases) section. Here you can download the latest version and view the change log.
+
+Feel free to explore and enhance your web applications with FlashyJS! For more examples and detailed documentation, check the repository or explore the source code. Happy coding!
